@@ -1,0 +1,40 @@
+# Default for local preview; post cards use relativeURLs so clicks stay on your host.
+# Production: hugo --minify --baseURL "https://your-domain.com/"
+baseURL = 'http://localhost:1313/'
+relativeURLs = true
+title = 'Zero to Hero Terraform AWS'
+theme = 'PaperMod'
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  env = 'production'
+  description = 'Learn Terraform, VPC, EC2, RDS, GitHub Actions, and AWS OIDC by building a three-tier Todo app.'
+  defaultTheme = 'auto'
+  mainSections = ['posts']
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+
+  [params.homeInfoParams]
+    Title = 'Zero to Hero Terraform AWS'
+    Content = '''
+Step-by-step tutorials for AWS three-tier architecture: **Terraform and AWS** first, then **GitHub Actions and OIDC**.
+
+Read the posts below **in order**. New parts will show up here as they are published.
+'''
+
+[menu]
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
