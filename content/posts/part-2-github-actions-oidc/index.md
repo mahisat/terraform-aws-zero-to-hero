@@ -1,6 +1,6 @@
 ---
 title: "Zero-to-Hero Part 2: Automated Deployment for Your Part 1 Infrastructure (GitHub Actions & OIDC)"
-date: 2025-09-15T09:00:00+05:30
+date: 2026-09-27T09:00:00+05:30
 draft: false
 tags: ["GitHub Actions AWS", "OIDC federation", "AWS IAM role trust policy", "SSM Run Command", "CI/CD EC2", "GitHub Actions secrets"]
 description: "Automate deploy of the three-tier stack from Part 1 — GitHub Actions workflows, OIDC to AWS, SSM to private EC2, SSH frontend deploy, and debugging without long-lived access keys."

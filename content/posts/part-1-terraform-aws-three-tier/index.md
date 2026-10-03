@@ -1,6 +1,6 @@
 ---
 title: "Zero-to-Hero Part 1: Build a Three-Tier AWS Architecture with Terraform"
-date: 2025-09-01T09:00:00+05:30
+date: 2026-09-27T09:00:00+05:30
 draft: false
 tags: ["AWS for beginners", "Terraform tutorial", "three-tier architecture", "VPC networking", "EC2 user data", "RDS MySQL", "NAT Gateway", "infrastructure as code"]
 description: "VPC, public/private subnets, EC2, RDS, security groups, IAM, and bootstrap scripts — explained for complete beginners."
