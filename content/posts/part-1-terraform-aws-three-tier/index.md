@@ -13,6 +13,14 @@ weight: 1
 
 ---
 
+## Companion repository
+
+**Read this post alongside the code:** [github.com/mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture).
+
+That repo is the **code reference for Part 1 and Part 2** (later installments in this series will use a separate repository). It includes Terraform under `terraform/`, the React app under `frontend/`, and the API under `backend/`. Browse files on GitHub or clone the repo while you read; when this article mentions a path (for example `terraform/vpc.tf`), open the same file there for a concrete picture of what we are building.
+
+---
+
 ## Who this is for
 
 You might be thinking: *“I don’t know Terraform or AWS.”* This article is the **first step** in a series. We focus on **concepts**, not copy-paste without understanding. By the end you should know **what** each file does, **why** it exists, **where** it is configured, and **how** to debug when something breaks.
@@ -378,5 +386,3 @@ Terraform (and the AWS provider during **plan** and **apply**) calls many API ac
 **Further reading:** [Appendix — every Terraform & project file (deep dive)](/reference/appendix-terraform-and-project-files/) · [Linux commands reference](/reference/linux-commands-reference/)
 
 ---
-
-*Suggested Medium title:* **Zero to Hero with Terraform on AWS: Build a Three-Tier VPC, EC2, and RDS Stack from Scratch**

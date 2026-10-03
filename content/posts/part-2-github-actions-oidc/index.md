@@ -13,6 +13,14 @@ weight: 2
 
 ---
 
+## Companion repository
+
+**Read this post alongside the code:** [github.com/mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture).
+
+This repo covers **Part 1 and Part 2 only** — upcoming series posts will point to a new repository when it is published. Part 1 infrastructure and the Todo app live here; Part 2 adds automation in [`.github/workflows/`](https://github.com/mahisat/aws-basic-3-tier-architecture/tree/main/.github/workflows) and the IAM/OIDC pieces under `terraform/`. Keep the repo open while you read so workflow YAML, trust policies, and deploy steps map directly to files you can inspect and diff against your own fork.
+
+---
+
 ## Who this is for
 
 You completed **Part 1** — infrastructure exists. Now you want **push-to-deploy**: change backend code, push to `main`, and see it on AWS without manual SSH for every file.
@@ -369,5 +377,3 @@ From **“I don’t know Terraform or AWS”** to:
 **Further reading:** [Linux commands reference](/reference/linux-commands-reference/) · [Appendix — Terraform & project files](/reference/appendix-terraform-and-project-files/) (companion to Part 1)
 
 ---
-
-*Suggested Medium title:* **Zero to Hero with GitHub Actions on AWS: OIDC, SSM, and Deploying to a Three-Tier Architecture Without Access Keys**
