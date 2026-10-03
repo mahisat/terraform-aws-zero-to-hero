@@ -1,7 +1,7 @@
-# Default for local preview; post cards use relativeURLs so clicks stay on your host.
-# Production: hugo --minify --baseURL "https://your-domain.com/"
-baseURL = 'http://localhost:1313/'
-relativeURLs = true
+# GitHub Pages project site (CI also passes --baseURL from configure-pages).
+baseURL = 'https://mahisat.github.io/terraform-aws-zero-to-hero/'
+relativeURLs = false
+canonifyURLs = true
 title = 'Zero to Hero Terraform AWS'
 theme = 'PaperMod'
 
