@@ -336,7 +336,7 @@ Terraform (and the AWS provider during **plan** and **apply**) calls many API ac
 
 1. Copy the **action name** from the error message (e.g. `ec2:DescribeInstanceAttribute`).
 2. In **IAM** → your user or role → **Permissions**, add that action to the policy (scope to `"Resource": "*"` for this learning stack, or tighten later).
-3. Optionally merge additions into [`iam-terraform-least-privilege.json`](../../../../01-3-tier-basic/terraform/iam-terraform-least-privilege.json) so your repo documents the full set.
+3. Optionally merge additions into [`iam-terraform-least-privilege.json`](https://github.com/mahisat/aws-basic-3-tier-architecture/blob/main/terraform/iam-terraform-least-privilege.json) so your repo documents the full set.
 4. Run **`terraform plan`** again, then **`terraform apply`**.
 
 **Beginner mistake:** Adding only “create” permissions. Terraform also needs **read/describe** permissions for resources it manages. One error often hides the next until you fix them one at a time.
