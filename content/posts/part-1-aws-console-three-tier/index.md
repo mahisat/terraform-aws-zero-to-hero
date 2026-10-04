@@ -1,5 +1,5 @@
 ---
-title: "Zero-to-Hero Part 1: Build a Three-Tier AWS Architecture in the Console"
+title: "Basic Three Tier Part 1: Build a Three-Tier AWS Architecture in the Console"
 date: 2026-09-20T09:00:00+05:30
 draft: false
 tags: ["AWS for beginners", "AWS Management Console", "three-tier architecture", "VPC networking", "EC2 user data", "RDS MySQL", "NAT Gateway"]
@@ -13,13 +13,13 @@ cover:
   caption: "NAT Gateway lives in the public subnet (with an Elastic IP); private subnets route outbound traffic through it to the Internet Gateway."
 ---
 **Previous:** [Series index](/)  
-**Next:** [Part 2 — Terraform + AWS](/posts/part-2-terraform-aws-three-tier/)
+**Next:** [Basic Three Tier Part 2 — Terraform + AWS](/posts/part-2-terraform-aws-three-tier/)
 
 ---
 
 ## Who this is for
 
-You might be thinking: *“I don’t know AWS yet.”* This article is the **first step** in the series. We build the **same architecture** you will later automate with Terraform in [Part 2](/posts/part-2-terraform-aws-three-tier/), but here you create every resource **manually** in the **AWS Management Console** so you see **what** each service is and **how** pieces connect.
+You might be thinking: *“I don’t know AWS yet.”* This article is **Basic Three Tier Part 1** — the first step in the beginner track. We build the **same architecture** you will later automate with Terraform in [Part 2](/posts/part-2-terraform-aws-three-tier/), but here you create every resource **manually** in the **AWS Management Console** so you see **what** each service is and **how** pieces connect.
 
 No Terraform required for this post. You only need an AWS account and patience (first-time setup takes about **45–90 minutes**, mostly waiting on RDS and EC2 bootstrap).
 
@@ -537,7 +537,7 @@ Delete in roughly this order to avoid dependency errors:
 - How **user data** bootstraps the same Todo app the Terraform track deploys.
 - Where to look when **cloud-init** or **systemd** fails.
 
-**Next:** [Part 2 — Build the same architecture with Terraform](/posts/part-2-terraform-aws-three-tier/) so infrastructure becomes repeatable, reviewable code. After that, [Part 3 — GitHub Actions & OIDC](/posts/part-3-github-actions-oidc/) automates deployments.
+**Next:** [Basic Three Tier Part 2 — Build the same architecture with Terraform](/posts/part-2-terraform-aws-three-tier/) so infrastructure becomes repeatable, reviewable code. After that, [Basic Three Tier Part 3 — GitHub Actions & OIDC](/posts/part-3-github-actions-oidc/) automates deployments.
 
 **Companion repo (application + scripts):** [github.com/mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture)
 

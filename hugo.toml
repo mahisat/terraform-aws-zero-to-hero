@@ -22,11 +22,11 @@ theme = 'PaperMod'
   TocOpen = false
 
   [params.homeInfoParams]
-    Title = 'Zero to Hero Terraform AWS'
+    Title = 'Basic & Advanced Three Tier AWS'
     Content = '''
-Step-by-step tutorials for AWS three-tier architecture: **AWS Console** first, then **Terraform**, then **GitHub Actions and OIDC**.
+**Basic Three Tier** — read Parts 1–3 in order: **AWS Console**, then **Terraform**, then **GitHub Actions and OIDC**.
 
-Read the posts below **in order**. New parts will show up here as they are published.
+**Advanced Three Tier** — Part 1 and beyond (coming soon). Complete the Basic track first, then follow on for production hardening and next-level patterns.
 '''
 
 [menu]

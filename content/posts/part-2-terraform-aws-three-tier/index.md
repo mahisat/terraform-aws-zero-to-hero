@@ -1,5 +1,5 @@
 ---
-title: "Zero-to-Hero Part 2: Build a Three-Tier AWS Architecture with Terraform"
+title: "Basic Three Tier Part 2: Build a Three-Tier AWS Architecture with Terraform"
 date: 2026-09-27T09:00:00+05:30
 draft: false
 tags: ["AWS for beginners", "Terraform tutorial", "three-tier architecture", "VPC networking", "EC2 user data", "RDS MySQL", "NAT Gateway", "infrastructure as code"]
@@ -14,8 +14,8 @@ cover:
 aliases:
   - /posts/part-1-terraform-aws-three-tier/
 ---
-**Previous:** [Part 1 — AWS Console](/posts/part-1-aws-console-three-tier/)  
-**Next:** [Part 3 — GitHub Actions & OIDC](/posts/part-3-github-actions-oidc/)
+**Previous:** [Basic Three Tier Part 1 — AWS Console](/posts/part-1-aws-console-three-tier/)  
+**Next:** [Basic Three Tier Part 3 — GitHub Actions & OIDC](/posts/part-3-github-actions-oidc/)
 
 ---
 
@@ -29,7 +29,7 @@ That repo is the **code reference for Parts 2 and 3** (later installments in thi
 
 ## Who this is for
 
-You might be thinking: *“I don’t know Terraform or AWS.”* If you already built this stack in the console, [Part 1](/posts/part-1-aws-console-three-tier/) names the same pieces — Terraform will feel familiar. This article is the **second step** in the series. We focus on **concepts**, not copy-paste without understanding. By the end you should know **what** each file does, **why** it exists, **where** it is configured, and **how** to debug when something breaks.
+You might be thinking: *“I don’t know Terraform or AWS.”* If you already built this stack in the console, [Part 1](/posts/part-1-aws-console-three-tier/) names the same pieces — Terraform will feel familiar. This article is **Basic Three Tier Part 2** — the second step in the beginner track. We focus on **concepts**, not copy-paste without understanding. By the end you should know **what** each file does, **why** it exists, **where** it is configured, and **how** to debug when something breaks.
 
 ---
 
@@ -391,7 +391,7 @@ Terraform (and the AWS provider during **plan** and **apply**) calls many API ac
 - How **user_data** bootstraps apps from a **public** Git repo.  
 - How to **read logs** and fix common bootstrap failures.
 
-**Next:** [Part 3 — GitHub Actions, OIDC, and automated deployment](/posts/part-3-github-actions-oidc/) — then the [architecture evaluation](/posts/part-3-github-actions-oidc/#architecture-evaluation-learning-vs-production) at the end of Part 3.
+**Next:** [Basic Three Tier Part 3 — GitHub Actions, OIDC, and automated deployment](/posts/part-3-github-actions-oidc/) — then the [architecture evaluation](/posts/part-3-github-actions-oidc/#architecture-evaluation-learning-vs-production) at the end of Part 3.
 
 **Further reading:** [Appendix — every Terraform & project file (deep dive)](/reference/appendix-terraform-and-project-files/) · [Linux commands reference](/reference/linux-commands-reference/)
 

@@ -7,7 +7,7 @@ ShowToc: true
 weight: 101
 ---
 
-Companion to [Part 2 — Terraform](/posts/part-2-terraform-aws-three-tier/). For each file: **what**, **why**, **where it runs**, **common mistakes**.
+Companion to [Basic Three Tier Part 2 — Terraform](/posts/part-2-terraform-aws-three-tier/). For each file: **what**, **why**, **where it runs**, **common mistakes**.
 
 ---
 

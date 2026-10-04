@@ -1,5 +1,5 @@
 ---
-title: "Zero-to-Hero Part 3: Automated Deployment for Your Part 2 Infrastructure (GitHub Actions & OIDC)"
+title: "Basic Three Tier Part 3: Automated Deployment for Your Part 2 Infrastructure (GitHub Actions & OIDC)"
 date: 2026-09-27T09:00:00+05:30
 draft: false
 tags: ["GitHub Actions AWS", "OIDC federation", "AWS IAM role trust policy", "SSM Run Command", "CI/CD EC2", "GitHub Actions secrets"]
@@ -10,7 +10,7 @@ weight: 3
 aliases:
   - /posts/part-2-github-actions-oidc/
 ---
-**Previous:** [Part 2 — Terraform + AWS](/posts/part-2-terraform-aws-three-tier/)  
+**Previous:** [Basic Three Tier Part 2 — Terraform + AWS](/posts/part-2-terraform-aws-three-tier/)  
 **Index:** [Series home](/)
 
 ---
@@ -279,7 +279,7 @@ For EC2 and log commands (`ssh`, `journalctl`, `systemctl`, `curl`), see the [Li
 
 ## Architecture evaluation (learning vs production)
 
-This section closes the **Zero-to-Hero** series for this stack. Use it to decide what to keep for learning and what to change for real workloads.
+This section closes the **Basic Three Tier** track for this stack. Use it to decide what to keep for learning and what to change for real workloads.
 
 ### Advantages (why this is good for learning)
 
@@ -374,7 +374,7 @@ From **“I don’t know Terraform or AWS”** to:
 - Deploying via **SSM** and **SSH** workflows and fixing common CI failures.  
 - Judging **what to improve** for production.
 
-**Planned next articles:** private GitHub repos on EC2, S3 remote state + Terraform in Actions, cost optimization, ALB + HTTPS production path.
+**Next track — Advanced Three Tier:** start with **Advanced Three Tier Part 1** (coming soon). Complete [Basic Three Tier Part 1](/posts/part-1-aws-console-three-tier/), [Part 2](/posts/part-2-terraform-aws-three-tier/), and [Part 3](/posts/part-3-github-actions-oidc/) first so networking, Terraform, and CI/CD are familiar. Planned topics include private GitHub repos on EC2, S3 remote state + Terraform in Actions, cost optimization, and ALB + HTTPS production hardening.
 
 **Further reading:** [Linux commands reference](/reference/linux-commands-reference/) · [Appendix — Terraform & project files](/reference/appendix-terraform-and-project-files/) (companion to Part 2)
 
