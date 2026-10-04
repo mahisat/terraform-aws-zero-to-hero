@@ -24,7 +24,7 @@ theme = 'PaperMod'
   [params.homeInfoParams]
     Title = 'Zero to Hero Terraform AWS'
     Content = '''
-Step-by-step tutorials for AWS three-tier architecture: **Terraform and AWS** first, then **GitHub Actions and OIDC**.
+Step-by-step tutorials for AWS three-tier architecture: **AWS Console** first, then **Terraform**, then **GitHub Actions and OIDC**.
 
 Read the posts below **in order**. New parts will show up here as they are published.
 '''

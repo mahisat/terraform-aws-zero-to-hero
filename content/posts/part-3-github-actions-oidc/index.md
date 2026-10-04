@@ -1,14 +1,16 @@
 ---
-title: "Zero-to-Hero Part 2: Automated Deployment for Your Part 1 Infrastructure (GitHub Actions & OIDC)"
+title: "Zero-to-Hero Part 3: Automated Deployment for Your Part 2 Infrastructure (GitHub Actions & OIDC)"
 date: 2026-09-27T09:00:00+05:30
 draft: false
 tags: ["GitHub Actions AWS", "OIDC federation", "AWS IAM role trust policy", "SSM Run Command", "CI/CD EC2", "GitHub Actions secrets"]
-description: "Automate deploy of the three-tier stack from Part 1 — GitHub Actions workflows, OIDC to AWS, SSM to private EC2, SSH frontend deploy, and debugging without long-lived access keys."
-summary: "Automate deployment for the infrastructure you built in Part 1 — GitHub Actions, AWS OIDC, SSM to private EC2, and SSH frontend deploy without long-lived access keys."
+description: "Automate deploy of the three-tier stack from Part 2 — GitHub Actions workflows, OIDC to AWS, SSM to private EC2, SSH frontend deploy, and debugging without long-lived access keys."
+summary: "Automate deployment for the infrastructure you built in Part 2 — GitHub Actions, AWS OIDC, SSM to private EC2, and SSH frontend deploy without long-lived access keys."
 ShowToc: true
-weight: 2
+weight: 3
+aliases:
+  - /posts/part-2-github-actions-oidc/
 ---
-**Previous:** [Part 1 — Terraform + AWS](/posts/part-1-terraform-aws-three-tier/)  
+**Previous:** [Part 2 — Terraform + AWS](/posts/part-2-terraform-aws-three-tier/)  
 **Index:** [Series home](/)
 
 ---
@@ -17,13 +19,13 @@ weight: 2
 
 **Read this post alongside the code:** [github.com/mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture).
 
-This repo covers **Part 1 and Part 2 only** — upcoming series posts will point to a new repository when it is published. Part 1 infrastructure and the Todo app live here; Part 2 adds automation in [`.github/workflows/`](https://github.com/mahisat/aws-basic-3-tier-architecture/tree/main/.github/workflows) and the IAM/OIDC pieces under `terraform/`. Keep the repo open while you read so workflow YAML, trust policies, and deploy steps map directly to files you can inspect and diff against your own fork.
+This repo covers **Parts 2 and 3** — upcoming series posts will point to a new repository when it is published. Part 2 infrastructure and the Todo app live here; Part 3 adds automation in [`.github/workflows/`](https://github.com/mahisat/aws-basic-3-tier-architecture/tree/main/.github/workflows) and the IAM/OIDC pieces under `terraform/`. Keep the repo open while you read so workflow YAML, trust policies, and deploy steps map directly to files you can inspect and diff against your own fork.
 
 ---
 
 ## Who this is for
 
-You completed **Part 1** — infrastructure exists. Now you want **push-to-deploy**: change backend code, push to `main`, and see it on AWS without manual SSH for every file.
+You completed **Part 2** (or built the same stack in [Part 1](/posts/part-1-aws-console-three-tier/)) — infrastructure exists. Now you want **push-to-deploy**: change backend code, push to `main`, and see it on AWS without manual SSH for every file.
 
 This article explains **GitHub Actions** terms, **OIDC** to AWS, each **workflow** file, and how to fix failures — including GitHub’s **new OIDC `sub` claim** format for new repositories.
 
@@ -216,7 +218,7 @@ aws ssm send-command --document-name AWS-RunShellScript --instance-ids ...
 | AssumeRoleWithWebIdentity denied | Wrong `sub` in trust | Update trust for new repo ID format |
 | No running instance | Wrong tag / stopped EC2 | Check Name tag and state |
 | SSM access denied | Role missing `ssm:SendCommand` | Fix IAM policy |
-| Command Failed | No git repo on disk | Fix Part 1 user_data first |
+| Command Failed | No git repo on disk | Fix Part 2 user_data first |
 | npm build fails | No devDependencies | Run `npm ci` not `npm install --omit=dev` before build |
 
 ---
@@ -374,6 +376,6 @@ From **“I don’t know Terraform or AWS”** to:
 
 **Planned next articles:** private GitHub repos on EC2, S3 remote state + Terraform in Actions, cost optimization, ALB + HTTPS production path.
 
-**Further reading:** [Linux commands reference](/reference/linux-commands-reference/) · [Appendix — Terraform & project files](/reference/appendix-terraform-and-project-files/) (companion to Part 1)
+**Further reading:** [Linux commands reference](/reference/linux-commands-reference/) · [Appendix — Terraform & project files](/reference/appendix-terraform-and-project-files/) (companion to Part 2)
 
 ---

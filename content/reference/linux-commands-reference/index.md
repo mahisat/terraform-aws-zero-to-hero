@@ -133,4 +133,4 @@ sudo tail -100 /var/log/backend-setup.log
 
 ---
 
-Return to [Part 1](/posts/part-1-terraform-aws-three-tier/) | [Part 2](/posts/part-2-github-actions-oidc/) | [Series home](/)
+Return to [Part 1](/posts/part-1-aws-console-three-tier/) | [Part 2](/posts/part-2-terraform-aws-three-tier/) | [Part 3](/posts/part-3-github-actions-oidc/) | [Series home](/)

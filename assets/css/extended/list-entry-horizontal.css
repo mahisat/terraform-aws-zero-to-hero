@@ -1,0 +1,76 @@
+/* Home and list pages: thumbnail left, title and summary right */
+.post-entry,
+.first-entry {
+    display: grid;
+    grid-template-columns: clamp(160px, 34%, 300px) minmax(0, 1fr);
+    column-gap: calc(var(--gap) * 1.25);
+    row-gap: 0.35rem;
+    align-items: start;
+    min-height: unset;
+}
+
+.first-entry {
+    flex-direction: unset;
+    margin: var(--gap) 0 calc(var(--gap) * 2) 0;
+}
+
+.post-entry .entry-cover,
+.first-entry .entry-cover {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin-bottom: 0;
+    align-self: center;
+}
+
+.post-entry .entry-header,
+.post-entry .entry-content,
+.post-entry .entry-footer,
+.first-entry .entry-header,
+.first-entry .entry-content,
+.first-entry .entry-footer {
+    grid-column: 2;
+}
+
+.post-entry .entry-cover img,
+.first-entry .entry-cover img {
+    width: 100%;
+    height: auto;
+    max-height: 168px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* Posts without a cover image stay full-width */
+.post-entry:not(:has(.entry-cover)),
+.first-entry:not(:has(.entry-cover)) {
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .post-entry,
+    .first-entry {
+        grid-template-columns: 1fr;
+    }
+
+    .post-entry .entry-cover,
+    .first-entry .entry-cover {
+        grid-column: 1;
+        grid-row: auto;
+        margin-bottom: var(--gap);
+    }
+
+    .post-entry .entry-header,
+    .post-entry .entry-content,
+    .post-entry .entry-footer,
+    .first-entry .entry-header,
+    .first-entry .entry-content,
+    .first-entry .entry-footer {
+        grid-column: 1;
+    }
+
+    .post-entry .entry-cover img,
+    .first-entry .entry-cover img {
+        max-height: 200px;
+        object-position: center;
+    }
+}

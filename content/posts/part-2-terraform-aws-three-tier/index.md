@@ -1,15 +1,21 @@
 ---
-title: "Zero-to-Hero Part 1: Build a Three-Tier AWS Architecture with Terraform"
+title: "Zero-to-Hero Part 2: Build a Three-Tier AWS Architecture with Terraform"
 date: 2026-09-27T09:00:00+05:30
 draft: false
 tags: ["AWS for beginners", "Terraform tutorial", "three-tier architecture", "VPC networking", "EC2 user data", "RDS MySQL", "NAT Gateway", "infrastructure as code"]
 description: "VPC, public/private subnets, EC2, RDS, security groups, IAM, and bootstrap scripts — explained for complete beginners."
 summary: "Build a three-tier Todo app on AWS with Terraform — VPC, EC2, RDS, security groups, IAM, and bootstrap scripts, explained for complete beginners."
 ShowToc: true
-weight: 1
+weight: 2
+cover:
+  image: three-tier-architecture.jpg
+  alt: "AWS three-tier architecture — browser, frontend EC2 in a public subnet, backend EC2 and RDS MySQL in private subnets, NAT Gateway for outbound traffic"
+  caption: "NAT Gateway lives in the public subnet (with an Elastic IP); private subnets route outbound traffic through it to the Internet Gateway."
+aliases:
+  - /posts/part-1-terraform-aws-three-tier/
 ---
-**Previous:** [Series index](/)  
-**Next:** [Part 2 — GitHub Actions & OIDC](/posts/part-2-github-actions-oidc/)
+**Previous:** [Part 1 — AWS Console](/posts/part-1-aws-console-three-tier/)  
+**Next:** [Part 3 — GitHub Actions & OIDC](/posts/part-3-github-actions-oidc/)
 
 ---
 
@@ -17,13 +23,13 @@ weight: 1
 
 **Read this post alongside the code:** [github.com/mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture).
 
-That repo is the **code reference for Part 1 and Part 2** (later installments in this series will use a separate repository). It includes Terraform under `terraform/`, the React app under `frontend/`, and the API under `backend/`. Browse files on GitHub or clone the repo while you read; when this article mentions a path (for example `terraform/vpc.tf`), open the same file there for a concrete picture of what we are building.
+That repo is the **code reference for Parts 2 and 3** (later installments in this series will use a separate repository). It includes Terraform under `terraform/`, the React app under `frontend/`, and the API under `backend/`. Browse files on GitHub or clone the repo while you read; when this article mentions a path (for example `terraform/vpc.tf`), open the same file there for a concrete picture of what we are building.
 
 ---
 
 ## Who this is for
 
-You might be thinking: *“I don’t know Terraform or AWS.”* This article is the **first step** in a series. We focus on **concepts**, not copy-paste without understanding. By the end you should know **what** each file does, **why** it exists, **where** it is configured, and **how** to debug when something breaks.
+You might be thinking: *“I don’t know Terraform or AWS.”* If you already built this stack in the console, [Part 1](/posts/part-1-aws-console-three-tier/) names the same pieces — Terraform will feel familiar. This article is the **second step** in the series. We focus on **concepts**, not copy-paste without understanding. By the end you should know **what** each file does, **why** it exists, **where** it is configured, and **how** to debug when something breaks.
 
 ---
 
@@ -44,6 +50,10 @@ Browser → Frontend EC2 (nginx :80) → /api proxied to → Backend EC2 (:5000)
 ```
 
 Private instances reach the internet (git, npm) via a **NAT Gateway** in the public subnet.
+
+![AWS three-tier architecture diagram](three-tier-architecture.jpg)
+
+*NAT Gateway is deployed **inside the public subnet**; private subnet route tables send `0.0.0.0/0` to that NAT, not to the IGW directly.*
 
 ---
 
@@ -196,7 +206,7 @@ provider "aws" {
 | `todo-backend.service` | systemd unit | Run Node API on boot |
 | `install-backend-service.sh` | Manual repair script | Fix failed bootstrap |
 | `iam-terraform-least-privilege.json` | IAM policy for Terraform user/role | Least privilege apply |
-| `iam-github-deploy-least-privilege.json` | IAM policy for SSM deploy | Used in Part 2 |
+| `iam-github-deploy-least-privilege.json` | IAM policy for SSM deploy | Used in Part 3 |
 | `IAM.md` | IAM documentation | Who needs which policy |
 | `.gitignore` | Ignore state, `.terraform/`, tfvars, PEM | Safety |
 
@@ -219,9 +229,9 @@ provider "aws" {
 | `src/api/todos.ts` | Calls `/api/todos` (production: same origin via nginx) |
 | `src/config/api.ts` | `VITE_API_BASE_URL` handling |
 
-### `.github/workflows/` — Part 2
+### `.github/workflows/` — Part 3
 
-Deploy workflows are explained in [Part 2](/posts/part-2-github-actions-oidc/).
+Deploy workflows are explained in [Part 3](/posts/part-3-github-actions-oidc/).
 
 ---
 
@@ -347,14 +357,14 @@ Terraform (and the AWS provider during **plan** and **apply**) calls many API ac
 
 ---
 
-## Troubleshooting playbook (Part 1)
+## Troubleshooting playbook (Part 2)
 
 | Symptom | Likely cause | What to do |
 |---------|--------------|------------|
 | No `/home/ec2-user/app/backend` | user_data failed early | cloud-init logs; replace EC2 |
 | `Connection refused` :5000 | API not running / no build | `systemctl status todo-backend`; `npm run build` |
 | `Cannot find module dist/server.js` | Skipped `npm run build` | Build before start |
-| 502 on `/api` | nginx or backend | Part 2 + SELinux `httpd_can_network_connect` |
+| 502 on `/api` | nginx or backend | Part 3 + SELinux `httpd_can_network_connect` |
 | `templatefile` missing key | Bash `${VAR}` vs Terraform | Use `${db_endpoint}` or `$${bash_var}` |
 | Permission denied in SSM | Logged in as `ssm-user` | `sudo -u ec2-user` or `sudo ls` |
 
@@ -373,7 +383,7 @@ Terraform (and the AWS provider during **plan** and **apply**) calls many API ac
 
 ---
 
-## What you learned in Part 1
+## What you learned in Part 2
 
 - How **VPC, subnets, IGW, NAT** connect.  
 - How **security groups** enforce tier isolation.  
@@ -381,7 +391,7 @@ Terraform (and the AWS provider during **plan** and **apply**) calls many API ac
 - How **user_data** bootstraps apps from a **public** Git repo.  
 - How to **read logs** and fix common bootstrap failures.
 
-**Next:** [Part 2 — GitHub Actions, OIDC, and automated deployment](/posts/part-2-github-actions-oidc/) — then the [architecture evaluation](/posts/part-2-github-actions-oidc/#architecture-evaluation-learning-vs-production) at the end of Part 2.
+**Next:** [Part 3 — GitHub Actions, OIDC, and automated deployment](/posts/part-3-github-actions-oidc/) — then the [architecture evaluation](/posts/part-3-github-actions-oidc/#architecture-evaluation-learning-vs-production) at the end of Part 3.
 
 **Further reading:** [Appendix — every Terraform & project file (deep dive)](/reference/appendix-terraform-and-project-files/) · [Linux commands reference](/reference/linux-commands-reference/)
 

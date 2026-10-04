@@ -7,7 +7,7 @@ ShowToc: true
 weight: 101
 ---
 
-Companion to [Part 1](/posts/part-1-terraform-aws-three-tier/). For each file: **what**, **why**, **where it runs**, **common mistakes**.
+Companion to [Part 2 — Terraform](/posts/part-2-terraform-aws-three-tier/). For each file: **what**, **why**, **where it runs**, **common mistakes**.
 
 ---
 
@@ -168,4 +168,4 @@ Replace placeholder account ID in role ARNs.
 
 ---
 
-[Back to Part 1](/posts/part-1-terraform-aws-three-tier/) · [Part 2](/posts/part-2-github-actions-oidc/)
+[Back to Part 2](/posts/part-2-terraform-aws-three-tier/) · [Part 3](/posts/part-3-github-actions-oidc/)

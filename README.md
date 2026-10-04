@@ -2,9 +2,9 @@
 
 **Standalone git repository.** This Hugo site is maintained separately from the application code—it is not a submodule of the Part 1/2 app repo.
 
-**Parts 1 and 2** use the companion code in [mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture) (Terraform, frontend, backend, and GitHub Actions workflows). Later series posts will reference a different repository when that is published.
+**Parts 1–3** use the companion code in [mahisat/aws-basic-3-tier-architecture](https://github.com/mahisat/aws-basic-3-tier-architecture) (bootstrap scripts, Terraform, frontend, backend, and GitHub Actions workflows). Later series posts will reference a different repository when that is published.
 
-This site uses [Hugo](https://gohugo.io/) and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme. Parts 1 and 2 of the series are under `content/posts/`.
+This site uses [Hugo](https://gohugo.io/) and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme. Series posts are under `content/posts/` (`part-1-aws-console-three-tier`, `part-2-terraform-aws-three-tier`, `part-3-github-actions-oidc`).
 
 ## Prerequisites
 
